@@ -18,7 +18,7 @@ public class DataGetter {
         catch (IOException e) {
             e.printStackTrace();
         }
-        if (input.equals("")) {
+        if (input == null || input.isEmpty()) {
             return defaultValue;
         }
         else {
@@ -28,21 +28,7 @@ public class DataGetter {
     }
 
     public static int getInput(String inputName, int defaultValue) {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Enter your " +inputName+ " (default: " +defaultValue+ "): ");
-        String input = null;
-        try {
-            input = br.readLine();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-        if (input.equals("") ) {
-            return defaultValue;
-        }
-        else {
-            return Integer.valueOf(input);
-        }
 
+        return  Integer.valueOf(getInput(inputName, String.valueOf(defaultValue)));
     }
 }
